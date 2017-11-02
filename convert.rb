@@ -66,7 +66,7 @@ File.open('./jawiki-latest-pages-articles.xml', mode = 'rt'){|f|
       url = line.gsub(/\A.*外部リンク *=/, '').strip
     end
 
-    if line.match(/^}}\n/) and isCompany == true
+    if line.match(/\A}}\n/) and isCompany == true
       output_csv.puts ["#{pageTitle}", "#{name}", "#{mynumber}", "#{address}", "#{url}"]
       isCompany = false
     end
