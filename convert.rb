@@ -181,23 +181,23 @@ File.open('./jawiki-latest-pages-articles.xml', mode = 'rt'){|f|
       output_csv.pageTitle = ''
     end
 
-    if line.include?('{{基礎情報 会社')
+    if line.match(/{{[ |　]*基礎情報[ |　]+会社/)
       organization[:Company] = true
     end
 
-    if line.include?('{{Infobox 研究所')
+    if line.match(/{{[ |　]*Infobox[ |　]+研究所/)
       organization[:Lab] = true
     end
 
-    if line.include?('{{基礎情報 特定非営利活動法人')
+    if line.match(/{{[ |　]*基礎情報[ |　]+特定非営利活動法人/)
       organization[:NPO] = true
     end
 
-    if line.include?('{{日本のテレビ局')
+    if line.match(/{{[ |　]*基礎情報[ |　]+日本のテレビ局/)
       organization[:TV] = true
     end
 
-    if line.include?('{{日本のラジオ局')
+    if line.match(/{{[ |　]*基礎情報[ |　]+日本のラジオ局/)
       organization[:Radio] = true
     end
 
